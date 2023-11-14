@@ -98,5 +98,5 @@ class Bank:
 
     def load_data(self):
         self.customer_list = PersistenceUtils.file_open('customer_info.pickle')
-        self.customer_list = PersistenceUtils.file_open('acct_info.pickle')
+        self.account_list = PersistenceUtils.file_open('acct_info.pickle')
 
