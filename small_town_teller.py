@@ -36,18 +36,23 @@ class Bank:
             self.customer_list.append(person)
 
     def add_account(self, account):
+        # Add check to make sure account number is unique
         self.account_list.append(account)
 
     def remove_account(self, account):
-        self.account.remove(account)
+        self.account_list.remove(account)
 
-    def deposit(self, account):
-        pass
+    def deposit(self, acct_number, amount):
+        for item in self.account_list:
+            if item.number == acct_number:
+                item.balance += amount
 
-    def withdrawal(self, account):
-        pass
+    def withdrawal(self, acct_number, amount):
+        for item in self.account_list:
+            if item.number == acct_number:
+                item.balance -= amount
 
-    def balance(self, number):
+    def balance(self, acct_number):
         # iterate through account list, find matching account number, return the balance
-        balance = [item.balance for item in self.account_list if item.number == number]
+        balance = [item.balance for item in self.account_list if item.number == acct_number]
         return balance
