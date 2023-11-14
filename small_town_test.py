@@ -2,11 +2,10 @@ from small_town_teller import Person, Account, Bank
 
 zc_bank = Bank()
 
-bob = Person(1, "Bob", "Smith")
+bob = Person(1,'Bob', 'Smith')
 alice = Person(2, 'Alice', 'Jones')
 
 zc_bank.add_customer(bob)
-zc_bank.add_customer(alice)
 zc_bank.add_customer(alice)
 
 print(len(zc_bank.customer_list))
@@ -26,7 +25,6 @@ print(zc_bank.balance(1001))
 
 zc_bank.remove_account(bob_savings)
 print(zc_bank.balance(1001))
-
 
 
 
