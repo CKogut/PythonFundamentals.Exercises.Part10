@@ -17,14 +17,14 @@ zc_bank.add_account(alice_savings)
 zc_bank.add_account(alice_savings)
 
 print(zc_bank.balance(1002))
-zc_bank.deposit(1002, 500)
+zc_bank.deposit(1002, 500.50)
 print(zc_bank.balance(1002))
 
 zc_bank.withdrawal(1001, 100)
 print(zc_bank.balance(1001))
 
-zc_bank.remove_account(bob_savings)
+zc_bank.remove_account(1001)
 print(zc_bank.balance(1001))
 
-
+zc_bank.deposit(1003, 500)
 
