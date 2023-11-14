@@ -30,14 +30,28 @@ class Bank:
         self.customer_list = []
 
     def add_customer(self, person):
-        if person in self.customer_list:
-            print("Already a customer")
-        else:
+        match = False
+
+        for item in self.customer_list:
+            if item.id == person.id:
+                match = True
+                print("Customer ID already exists")
+                break
+
+        if not match:
             self.customer_list.append(person)
 
     def add_account(self, account):
-        # Add check to make sure account number is unique
-        self.account_list.append(account)
+        match = False
+
+        for item in self.account_list:
+            if item.number == account.number:
+                match = True
+                print("Account number already exists")
+                break
+
+        if not match:
+            self.account_list.append(account)
 
     def remove_account(self, account):
         self.account_list.remove(account)
