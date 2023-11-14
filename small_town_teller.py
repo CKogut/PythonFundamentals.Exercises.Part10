@@ -6,7 +6,7 @@ class Person:
 
 
 class Account:
-    def __init__(self, number, type, owner, balance):
+    def __init__(self, number, type, owner, balance=0):
         self.number = number
         self.type = type
         self.owner = owner
@@ -23,9 +23,31 @@ Withdrawing money from an account
 Balance inquiry for a particular account
 """
 
+
 class Bank:
     def __init__(self):
         self.account_list = []
+        self.customer_list = []
 
+    def add_customer(self, person):
+        if person in self.customer_list:
+            print("Already a customer")
+        else:
+            self.customer_list.append(person)
 
+    def add_account(self, account):
+        self.account_list.append(account)
 
+    def remove_account(self, account):
+        self.account.remove(account)
+
+    def deposit(self, account):
+        pass
+
+    def withdrawal(self, account):
+        pass
+
+    def balance(self, number):
+        # iterate through account list, find matching account number, return the balance
+        balance = [item.balance for item in self.account_list if item.number == number]
+        return balance
