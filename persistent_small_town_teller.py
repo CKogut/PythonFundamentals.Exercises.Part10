@@ -1,3 +1,21 @@
+import pickle
+
+
+class PersistenceUtils:
+    @staticmethod
+    def file_write(customer_info, acct_info):
+        with open('customer_info.pickle', 'wb') as f:
+            pickle.dump(customer_info, f)
+
+        with open('acct_info.pickle', 'wb') as f:
+            pickle.dump(acct_info, f)
+
+    @staticmethod
+    def file_open(file_name):
+        with open(file_name, 'rb') as f:
+            return pickle.load(f)
+
+
 class Person:
     def __init__(self, p_id, first_name, last_name):
         self.p_id = p_id
@@ -13,21 +31,19 @@ class Account:
         self.balance = balance
 
 
-""" 
-Declare a Bank class able to support the following operations:
-Adding a customer to the bank
-Adding an account to the bank
-Removing an account from the bank
-Depositing money into an account
-Withdrawing money from an account
-Balance inquiry for a particular account
-"""
+# Declare a Bank class able to support the following operations:
+# Adding a customer to the bank
+# Adding an account to the bank
+# Removing an account from the bank
+# Depositing money into an account
+# Withdrawing money from an account
+# Balance inquiry for a particular account
 
 
 class Bank:
     def __init__(self):
-        self.account_list = []
         self.customer_list = []
+        self.account_list = []
 
     def add_customer(self, person: Person) -> None:
         for item in self.customer_list:
@@ -76,3 +92,11 @@ class Bank:
                 return balance
         else:
             print('Account not found, no balance to display')
+
+    def save_data(self):
+        PersistenceUtils.file_write(self.customer_list, self.account_list)
+
+    def load_data(self):
+        self.customer_list = PersistenceUtils.file_open('customer_info.pickle')
+        self.customer_list = PersistenceUtils.file_open('acct_info.pickle')
+

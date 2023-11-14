@@ -1,8 +1,8 @@
-from small_town_teller import Person, Account, Bank
+from persistent_small_town_teller import Person, Account, Bank
 
 zc_bank = Bank()
 
-bob = Person(1,'Bob', 'Smith')
+bob = Person(1, 'Bob', 'Smith')
 alice = Person(2, 'Alice', 'Jones')
 
 zc_bank.add_customer(bob)
@@ -28,3 +28,4 @@ print(zc_bank.balance(1001))
 
 zc_bank.deposit(1003, 500)
 
+zc_bank.save_data()
